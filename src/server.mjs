@@ -1,9 +1,9 @@
 import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import uuid from 'uuid';
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const uuid = require('uuid');
 
-var fakeTodos = [{
+let fakeTodos = [{
     id: 'ae06181d-92c2-4fed-a29d-fb53a6301eb9',
     text: 'En apprendre plus l\'Ecosystème React',
     isCompleted: false,
@@ -46,6 +46,7 @@ app.post('/todos', (req, res) => {
             isCompleted: false,
             text,
         }
+
         fakeTodos.push(insertedTodo);
         res.status(200).json(insertedTodo);
     } else {
@@ -79,4 +80,4 @@ app.delete('/todos/:id', (req, res) => {
     res.status(200).json(removedTodo);
 });
 
-app.listen(8080, () => console.log("Server listening on port 8080"));
+app.listen(process.env.PORT || 8080, () => console.log(`Server listening on port ${process.env.PORT}`));
