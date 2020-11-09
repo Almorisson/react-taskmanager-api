@@ -1,9 +1,9 @@
-import express from 'express';
+const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const uuid = require('uuid');
 
-let fakeTodos = [{
+const fakeTodos = [{
     id: 'ae06181d-92c2-4fed-a29d-fb53a6301eb9',
     text: 'En apprendre plus l\'Ecosystème React',
     isCompleted: false,
